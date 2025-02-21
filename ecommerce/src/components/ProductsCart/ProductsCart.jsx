@@ -1,18 +1,10 @@
 import styles from "./ProductsCart.module.css";
+import lixeira from "../../assets/lixeira10x10.png";
+
+import { useCart } from "../../context/CartContext";
 
 const ProductsCart = () => {
-  const products = [
-    {
-      title: "O Senhor dos Anéis: A Sociedade do Anel",
-      price: 59.9,
-      image: "https://m.media-amazon.com/images/I/81hCVEC0ExL._SL1500_.jpg",
-    },
-    {
-      title: "1984",
-      price: 39.9,
-      image: "https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg",
-    },
-  ];
+  const { cart, totalCart } = useCart();
 
   return (
     <div className={styles.container_cart}>
@@ -21,16 +13,11 @@ const ProductsCart = () => {
           <h1>Carrinho de compras</h1>
           <p>Preço</p>
         </div>
-        {products ? (
-          products.map((product) => (
+        {cart.length > 0 ? (
+          cart.map((product) => (
             <>
               <div className={styles.product_cart}>
                 <div className={styles.product_check_img}>
-                  <input
-                    type="checkbox"
-                    name="check-product"
-                    id="check-product"
-                  />
                   <img src={product.image} alt={product.title} />
                 </div>
                 <div className={styles.product_cart_description}>
@@ -51,12 +38,25 @@ const ProductsCart = () => {
             </>
           ))
         ) : (
-          <p>Carrinho vazio</p>
+          <p className={styles.no_products_cart}>Carrinho vazio</p>
         )}
       </div>
       <div className={styles.total_product_cart}>
-        <p>Total de produtos: 1</p>
-        <p>Valor: R$xx,xx</p>
+        <p>Total de produtos: {cart.length}</p>
+        {cart.length === 0 ? (
+          <p>Valor: 0</p>
+        ) : (
+          <div className={styles.total_price_cart}>
+            <p>Valor:</p>
+            <span>
+              {totalCart().toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
+          </div>
+        )}
+
         <button className="btn">Finalizar pedido</button>
       </div>
     </div>

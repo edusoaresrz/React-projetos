@@ -2,7 +2,11 @@ import { books } from "../../db/db";
 
 import styles from "./ProductHome.module.css";
 
+import { useCart } from "../../context/CartContext";
+
 const ProductHome = () => {
+  const { addToCart } = useCart();
+
   return (
     <div className={styles.container_products}>
       {books.map((book) => (
@@ -15,7 +19,9 @@ const ProductHome = () => {
               currency: "BRL",
             })}
           </p>
-          <button className="btn">Adicionar ao carrinho</button>
+          <button className="btn" onClick={() => addToCart(book)}>
+            Adicionar ao carrinho
+          </button>
         </div>
       ))}
     </div>

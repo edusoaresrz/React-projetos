@@ -41,6 +41,7 @@
 .product_check_img {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
@@ -70,6 +71,12 @@
   cursor: pointer;
 }
 
+.no_products_cart {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
 .total_product_cart {
   display: flex;
   flex-direction: column;
@@ -79,4 +86,9 @@
   border: 2px solid #eaf2f3;
   height: 150px;
   padding: 15px;
+}
+
+.total_price_cart {
+  display: flex;
+  gap: 5px;
 }

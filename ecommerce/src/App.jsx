@@ -2,6 +2,8 @@ import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { CartProvider } from "./context/CartContext";
+
 // components
 import Navbar from "./components/Navbar/Navbar";
 
@@ -12,13 +14,15 @@ import Cart from "./pages/Cart/Cart";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }
