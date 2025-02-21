@@ -1,0 +1,7 @@
+.form_task {
+  width: 400px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
