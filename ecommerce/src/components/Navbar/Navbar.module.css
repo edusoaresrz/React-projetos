@@ -56,3 +56,22 @@
   align-items: center;
   gap: 20px;
 }
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 10px;
+  background-color: #f00;
+  color: #fff;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}

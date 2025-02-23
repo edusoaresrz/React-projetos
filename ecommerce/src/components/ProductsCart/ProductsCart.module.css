@@ -59,6 +59,8 @@
 
 .product_cart_controls {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 
   margin-top: 1rem;
@@ -69,6 +71,15 @@
   border: 1px solid #eaf2f3;
   background-color: transparent;
   cursor: pointer;
+}
+
+.product_cart_controls .remove_btn {
+  background-color: #f00;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.8rem;
+  padding: 4px 6px;
 }
 
 .no_products_cart {
